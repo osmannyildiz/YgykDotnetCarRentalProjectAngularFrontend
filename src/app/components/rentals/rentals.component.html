@@ -1,0 +1,23 @@
+<h2 class="display-6">Kiralamalar</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Araç ismi</th>
+      <th>Araç markası</th>
+      <th>Müşteri şirket ismi</th>
+      <th>Müşteri şahıs ismi</th>
+      <th>Kiralama tarihi</th>
+      <th>İade tarihi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rentalDetail of rentalDetails">
+      <td>{{rentalDetail.carName}}</td>
+      <td>{{rentalDetail.carBrandName}}</td>
+      <td>{{rentalDetail.customerCompanyName}}</td>
+      <td>{{rentalDetail.customerUserFullName}}</td>
+      <td>{{ rentalDetail.rentDate | date:"dd.MM.yyyy" }}</td>
+      <td>{{ rentalDetail.returnDate | date:"dd.MM.yyyy" }}</td>
+    </tr>
+  </tbody>
+</table>

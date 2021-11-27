@@ -1,0 +1,19 @@
+<h2 class="display-6">Araçlar</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>İsim</th>
+      <th>Marka</th>
+      <th>Renk</th>
+      <th>Günlük fiyat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let carDetail of carDetails">
+      <td>{{carDetail.name}}</td>
+      <td>{{carDetail.brandName}}</td>
+      <td>{{carDetail.colorName}}</td>
+      <td>{{carDetail.dailyPrice}}</td>
+    </tr>
+  </tbody>
+</table>
