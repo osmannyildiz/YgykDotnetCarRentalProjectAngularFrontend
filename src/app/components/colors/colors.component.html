@@ -1,6 +1,18 @@
 <div class="card">
   <div class="card-header">Renkler</div>
   <ul class="list-group list-group-flush">
-    <li *ngFor="let color of colors" class="list-group-item">{{color.name}}</li>
+    <li 
+      routerLink="/" 
+      (click)="unsetCurrentColor()"
+      class="list-group-item"
+      [class]="getActiveClassIfNoCurrentColor()"
+    >Hepsi</li>
+    <li 
+      *ngFor="let color of colors" 
+      routerLink="/color/{{color.id}}" 
+      (click)="setCurrentColor(color)"
+      class="list-group-item"
+      [class]="getActiveClassIfEqualsCurrentColor(color)"
+    >{{color.name}}</li>
   </ul>
 </div>

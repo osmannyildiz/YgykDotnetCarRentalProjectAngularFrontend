@@ -1,0 +1,36 @@
+<h1 class="display-2 mt-4">
+  <small class="text-muted">{{carDetail.brandName}}</small>
+  {{car.name}}
+</h1>
+<p class="lead">{{car.description}}</p>
+
+<div class="row mt-4">
+
+  <div class="col-md-3">
+    <h2 class="display-6">Bilgiler</h2>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td class="fw-bold">Renk:</td>
+          <td>{{carDetail.colorName}}</td>
+        </tr>
+        <tr>
+          <td class="fw-bold">Günlük ücret:</td>
+          <td>₺{{car.dailyPrice}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-9">
+    <h2 class="display-6">Resimler</h2>
+    <div class="row">
+      <div *ngFor="let carImage of carImages" class="col-md-4 text-center mb-4 car-image-wrapper">
+        <a href="{{imageHost}}{{carImage.imageFilePath}}" target="_blank">
+          <img class="img-fluid" src="{{imageHost}}{{carImage.imageFilePath}}" alt="Aracın resmi">
+        </a>
+      </div>
+    </div>
+  </div>
+  
+</div>

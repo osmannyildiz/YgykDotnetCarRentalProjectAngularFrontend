@@ -5,15 +5,18 @@
       <th>İsim</th>
       <th>Marka</th>
       <th>Renk</th>
-      <th>Günlük fiyat</th>
+      <th>Günlük ücret</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let carDetail of carDetails">
-      <td>{{carDetail.name}}</td>
+    <tr 
+      *ngFor="let carDetail of carDetails"
+      routerLink="/car/{{carDetail.carId}}"
+    >
+      <td>{{carDetail.carName}}</td>
       <td>{{carDetail.brandName}}</td>
       <td>{{carDetail.colorName}}</td>
-      <td>{{carDetail.dailyPrice}}</td>
+      <td>{{carDetail.carDailyPrice}}</td>
     </tr>
   </tbody>
 </table>
