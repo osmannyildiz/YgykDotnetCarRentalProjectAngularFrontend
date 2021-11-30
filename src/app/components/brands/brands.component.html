@@ -1,15 +1,18 @@
 <div class="card">
-  <div class="card-header">Markalar</div>
+  <div class="card-header">
+    Markalar
+    <input type="text" [(ngModel)]="filterText" class="form-control form-control-sm" id="brandsFilterText" placeholder="Filtrele...">
+  </div>
   <ul class="list-group list-group-flush">
     <li 
-      routerLink="/" 
+      routerLink="/cars" 
       (click)="unsetCurrentBrand()"
       class="list-group-item"
       [class]="getActiveClassIfNoCurrentBrand()"
     >Hepsi</li>
     <li 
-      *ngFor="let brand of brands" 
-      routerLink="/brand/{{brand.id}}" 
+      *ngFor="let brand of brands | filterBrands:filterText" 
+      routerLink="/cars/brand/{{brand.id}}" 
       (click)="setCurrentBrand(brand)"
       class="list-group-item"
       [class]="getActiveClassIfEqualsCurrentBrand(brand)"

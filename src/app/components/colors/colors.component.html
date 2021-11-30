@@ -1,15 +1,18 @@
 <div class="card">
-  <div class="card-header">Renkler</div>
+  <div class="card-header">
+    Renkler
+    <input type="text" [(ngModel)]="filterText" class="form-control form-control-sm" id="colorsFilterText" placeholder="Filtrele...">
+  </div>
   <ul class="list-group list-group-flush">
     <li 
-      routerLink="/" 
+      routerLink="/cars" 
       (click)="unsetCurrentColor()"
       class="list-group-item"
       [class]="getActiveClassIfNoCurrentColor()"
     >Hepsi</li>
     <li 
-      *ngFor="let color of colors" 
-      routerLink="/color/{{color.id}}" 
+      *ngFor="let color of colors | filterColors:filterText" 
+      routerLink="/cars/color/{{color.id}}" 
       (click)="setCurrentColor(color)"
       class="list-group-item"
       [class]="getActiveClassIfEqualsCurrentColor(color)"

@@ -3,6 +3,11 @@
   {{car.name}}
 </h1>
 <p class="lead">{{car.description}}</p>
+<div class="row">
+  <div class="col-md-auto">
+    <button routerLink="rent" class="btn btn-primary">Kirala</button>
+  </div>
+</div>
 
 <div class="row mt-4">
 
@@ -11,12 +16,16 @@
     <table class="table">
       <tbody>
         <tr>
+          <td class="fw-bold">Model yılı:</td>
+          <td>{{car.modelYear}}</td>
+        </tr>
+        <tr>
           <td class="fw-bold">Renk:</td>
           <td>{{carDetail.colorName}}</td>
         </tr>
         <tr>
           <td class="fw-bold">Günlük ücret:</td>
-          <td>₺{{car.dailyPrice}}</td>
+          <td>{{ car.dailyPrice | currency:"TRY":"₺" }}</td>
         </tr>
       </tbody>
     </table>

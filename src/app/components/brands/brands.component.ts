@@ -11,6 +11,7 @@ import { BrandService } from 'src/app/services/brand.service';
 export class BrandsComponent implements OnInit {
   brands: Brand[] = [];
   currentBrandId: number = 0;
+  filterText: string = "";
   constructor(
     private brandService: BrandService,
     private activatedRoute: ActivatedRoute

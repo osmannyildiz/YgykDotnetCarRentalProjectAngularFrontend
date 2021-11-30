@@ -11,6 +11,7 @@ import { ColorService } from 'src/app/services/color.service';
 export class ColorsComponent implements OnInit {
   colors: Color[] = [];
   currentColorId: number = 0;
+  filterText: string = "";
   constructor(
     private colorService: ColorService,
     private activatedRoute: ActivatedRoute

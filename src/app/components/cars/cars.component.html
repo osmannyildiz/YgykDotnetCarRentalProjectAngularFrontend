@@ -1,4 +1,25 @@
 <h2 class="display-6">Araçlar</h2>
+
+<input type="text" [(ngModel)]="filterText" class="form-control" id="carsFilterText" placeholder="Araç ismine göre filtrele...">
+
+<div class="row mt-2">
+  <div class="col-md-auto">
+    <select [(ngModel)]="filterBrandId" class="form-select" id="filterBrandId">
+      <option value="0" selected>Marka seç</option>
+      <option *ngFor="let brand of brands" value="{{brand.id}}">{{brand.name}}</option>
+    </select>
+  </div>
+  <div class="col-md-auto">
+    <select [(ngModel)]="filterColorId" class="form-select" id="filterColorId">
+      <option value="0" selected>Renk seç</option>
+      <option *ngFor="let color of colors" value="{{color.id}}">{{color.name}}</option>
+    </select>
+  </div>
+  <div class="col-md-auto">
+    <button (click)="filterByBrandIdAndColorId()" type="button" class="btn btn-primary">Filtrele</button>
+  </div>
+</div>
+
 <table class="table">
   <thead>
     <tr>
@@ -8,15 +29,21 @@
       <th>Günlük ücret</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngIf="dataLoaded">
     <tr 
-      *ngFor="let carDetail of carDetails"
-      routerLink="/car/{{carDetail.carId}}"
+      *ngFor="let carDetail of carDetails | filterCars:filterText"
+      routerLink="/cars/{{carDetail.carId}}"
     >
       <td>{{carDetail.carName}}</td>
       <td>{{carDetail.brandName}}</td>
       <td>{{carDetail.colorName}}</td>
-      <td>{{carDetail.carDailyPrice}}</td>
+      <td>{{ carDetail.carDailyPrice | currency:"TRY":"₺" }}</td>
     </tr>
   </tbody>
 </table>
+
+<div *ngIf="!dataLoaded" class="text-center">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Yükleniyor...</span>
+  </div>
+</div>
