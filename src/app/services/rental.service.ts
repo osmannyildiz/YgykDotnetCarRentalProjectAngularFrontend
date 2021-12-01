@@ -16,7 +16,7 @@ export class RentalService {
     return this.httpClient.get<ListResponseModel<RentalDetail>>(this.apiUrl + "getAllRentalDetails");
   }
 
-  Add(carId: number, customerId: number, rentDate: Date, returnDate: Date) {
+  add(carId: number, customerId: number, rentDate: Date, returnDate: Date) {
     let rental = {
       carId,
       customerId,

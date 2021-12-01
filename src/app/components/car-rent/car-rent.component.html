@@ -1,65 +1,45 @@
-<h1 class="display-2 mt-4">
+<h1 class="display-2 mt-3">
   <small class="text-muted">{{carDetail.brandName}}</small>
   {{car.name}}
 </h1>
 <p class="lead">{{car.description}}</p>
 
-<section class="mt-5">
-  <h2 class="display-6">Tarih seçimi</h2>
-  <div class="row mt-3">
-    <div class="col-md-6">
-      <label for="rentDate" class="form-label">Kira başlangıç tarihi</label>
-      <input type="date" [(ngModel)]="rentDateStr" (change)="calculateTotalPrice()" min="{{todayDateStr}}" class="form-control" id="rentDate">
-    </div>
-    <div class="col-md-6">
-      <label for="returnDate" class="form-label">İade tarihi</label>
-      <input type="date" [(ngModel)]="returnDateStr" (change)="calculateTotalPrice()" min="{{todayDateStr}}" class="form-control" id="returnDate">
-    </div>
+<h2 class="display-6 mt-4">Tarih seçimi</h2>
+<div class="row mt-3">
+  <div class="col-md-6">
+    <label for="rentDate" class="form-label">Kira başlangıç tarihi</label>
+    <input type="date" [(ngModel)]="rentDateStr" (change)="calculateTotalPrice()" min="{{todayDateStr}}" class="form-control" id="rentDate">
   </div>
-  <div *ngIf="dateError" class="alert alert-danger mt-3">
-    <strong>Hata:</strong> {{dateError}}
+  <div class="col-md-6">
+    <label for="returnDate" class="form-label">İade tarihi</label>
+    <input type="date" [(ngModel)]="returnDateStr" (change)="calculateTotalPrice()" min="{{todayDateStr}}" class="form-control" id="returnDate">
   </div>
-  <table class="table mt-3">
-    <tbody>
-      <tr>
-        <td class="fw-bold">Kiralama süresi:</td>
-        <td>{{rentalDayCount}} gün</td>
-      </tr>
-      <tr>
-        <td class="fw-bold">Günlük ücret:</td>
-        <td>{{ car.dailyPrice | currency:"TRY":"₺" }}</td>
-      </tr>
-      <tr>
-        <td class="fw-bold">Ödeyeceğiniz toplam miktar:</td>
-        <td><mark>{{ totalPrice | currency:"TRY":"₺" }}</mark></td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<section class="mt-5">
-  <h2 class="display-6">Ödeme bilgileri</h2>
-  <div class="row mt-3">
-    <div class="col-md-6">
-      <label for="creditCardNumber" class="form-label">Kredi kartı numarası</label>
-      <input type="text" [(ngModel)]="creditCardNumber" class="form-control" id="creditCardNumber">
-    </div>
-    <div class="col-md-3">
-      <label for="creditCardExpiry" class="form-label">Kredi kartı son geçerlilik tarihi</label>
-      <input type="text" [(ngModel)]="creditCardExpiry" class="form-control" id="creditCardExpiry">
-    </div>
-    <div class="col-md-3">
-      <label for="creditCardCvc" class="form-label">Kredi kartı güvenlik kodu</label>
-      <input type="text" [(ngModel)]="creditCardCvc" class="form-control" id="creditCardCvc">
-    </div>
-  </div>
-  <div *ngIf="paymentError" class="alert alert-danger mt-3">
-    <strong>Hata:</strong> {{paymentError}}
-  </div>
-</section>
+</div>
+<div *ngIf="formError" class="alert alert-danger mt-3">
+  <strong>Hata:</strong> {{formError}}
+</div>
+<table class="table mt-3">
+  <tbody>
+    <tr>
+      <td class="fw-bold">Kiralama süresi:</td>
+      <td>{{rentalDayCount}} gün</td>
+    </tr>
+    <tr>
+      <td class="fw-bold">Günlük ücret:</td>
+      <td>{{ car.dailyPrice | currency:"TRY":"₺" }}</td>
+    </tr>
+    <tr>
+      <td class="fw-bold">Ödeyeceğiniz toplam miktar:</td>
+      <td><mark>{{ totalPrice | currency:"TRY":"₺" }}</mark></td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="row mt-3 mb-5">
   <div class="col-md-auto">
-    <button (click)="rent()" class="btn btn-primary">Kiralama İşlemini Onayla & Ödemeyi Yap</button>
+    <a routerLink="/cars/{{car.id}}" class="btn btn-secondary">Geri</a>
+  </div>
+  <div class="col-md-auto">
+    <button (click)="continueToPayment()" class="btn btn-primary">Devam Et</button>
   </div>
 </div>
