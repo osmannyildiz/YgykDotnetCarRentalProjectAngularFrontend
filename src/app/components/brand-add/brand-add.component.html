@@ -1,0 +1,10 @@
+<h1 class="display-6 mb-3">Marka ekle</h1>
+
+<form [formGroup]="brandForm">
+  <div class="mb-2">
+    <label for="name" class="form-label">İsim</label>
+    <input type="text" id="name" formControlName="name" class="form-control">
+  </div>
+</form>
+
+<button (click)="addBrand()" class="btn btn-primary">Ekle</button>

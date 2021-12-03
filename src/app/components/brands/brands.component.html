@@ -14,8 +14,11 @@
       *ngFor="let brand of brands | filterBrands:filterText" 
       routerLink="/cars/brand/{{brand.id}}" 
       (click)="setCurrentBrand(brand)"
-      class="list-group-item"
+      class="list-group-item d-flex justify-content-between"
       [class]="getActiveClassIfEqualsCurrentBrand(brand)"
-    >{{brand.name}}</li>
+    >
+      <span>{{brand.name}}</span>
+      <span routerLink="/brands/{{brand.id}}/edit" class="badge bg-secondary">Düzenle</span>
+    </li>
   </ul>
 </div>

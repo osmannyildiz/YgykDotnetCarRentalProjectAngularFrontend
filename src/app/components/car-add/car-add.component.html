@@ -1,0 +1,36 @@
+<h1 class="display-6 mb-3">Araç ekle</h1>
+
+<form [formGroup]="carForm">
+  <div class="mb-2">
+    <label for="brandId" class="form-label">Marka</label>
+    <select class="form-select" name="brandId" id="brandId" formControlName="brandId">
+      <!-- <option value="0" selected>Marka seçin</option> -->
+      <option *ngFor="let brand of brands" value="{{brand.id}}">{{brand.name}}</option>
+    </select>
+  </div>
+  <div class="mb-2">
+    <label for="name" class="form-label">İsim</label>
+    <input type="text" id="name" formControlName="name" class="form-control">
+  </div>
+  <div class="mb-2">
+    <label for="description" class="form-label">Açıklama</label>
+    <input type="text" id="description" formControlName="description" class="form-control">
+  </div>
+  <div class="mb-2">
+    <label for="modelYear" class="form-label">Model yılı</label>
+    <input type="number" id="modelYear" formControlName="modelYear" class="form-control">
+  </div>
+  <div class="mb-2">
+    <label for="colorId" class="form-label">Renk</label>
+    <select class="form-select" name="colorId" id="colorId" formControlName="colorId">
+      <!-- <option value="0" selected>Renk seçin</option> -->
+      <option *ngFor="let color of colors" value="{{color.id}}">{{color.name}}</option>
+    </select>
+  </div>
+  <div class="mb-2">
+    <label for="dailyPrice" class="form-label">Günlük ücret (₺)</label>
+    <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control">
+  </div>
+</form>
+
+<button (click)="addCar()" class="btn btn-primary">Ekle</button>

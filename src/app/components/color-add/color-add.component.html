@@ -1,0 +1,10 @@
+<h1 class="display-6 mb-3">Renk ekle</h1>
+
+<form [formGroup]="colorForm">
+  <div class="mb-2">
+    <label for="name" class="form-label">İsim</label>
+    <input type="text" id="name" formControlName="name" class="form-control">
+  </div>
+</form>
+
+<button (click)="addColor()" class="btn btn-primary">Ekle</button>

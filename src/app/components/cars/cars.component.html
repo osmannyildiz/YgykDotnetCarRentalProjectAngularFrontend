@@ -5,13 +5,13 @@
 <div class="row mt-2">
   <div class="col-md-auto">
     <select [(ngModel)]="filterBrandId" class="form-select" id="filterBrandId">
-      <option value="0" selected>Marka seç</option>
+      <option value="0" selected>Marka seçin</option>
       <option *ngFor="let brand of brands" value="{{brand.id}}">{{brand.name}}</option>
     </select>
   </div>
   <div class="col-md-auto">
     <select [(ngModel)]="filterColorId" class="form-select" id="filterColorId">
-      <option value="0" selected>Renk seç</option>
+      <option value="0" selected>Renk seçin</option>
       <option *ngFor="let color of colors" value="{{color.id}}">{{color.name}}</option>
     </select>
   </div>
@@ -27,6 +27,7 @@
       <th>Marka</th>
       <th>Renk</th>
       <th>Günlük ücret</th>
+      <th style="width: 100px"></th>
     </tr>
   </thead>
   <tbody *ngIf="dataLoaded">
@@ -38,6 +39,7 @@
       <td>{{carDetail.brandName}}</td>
       <td>{{carDetail.colorName}}</td>
       <td>{{ carDetail.carDailyPrice | currency:"TRY":"₺" }}</td>
+      <td><a routerLink="/cars/{{carDetail.carId}}/edit" class="btn btn-secondary">Düzenle</a></td>
     </tr>
   </tbody>
 </table>

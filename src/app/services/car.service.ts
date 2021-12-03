@@ -5,6 +5,7 @@ import { Car } from '../models/car';
 import { CarDetail } from '../models/carDetail';
 import { ItemResponseModel } from '../models/itemResponseModel';
 import { ListResponseModel } from '../models/listResponseModel';
+import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,13 @@ export class CarService {
 
   getCarDetailByCarId(carId: number): Observable<ItemResponseModel<CarDetail>> {
     return this.httpClient.get<ItemResponseModel<CarDetail>>(this.apiUrl + "getCarDetailByCarId?carId=" + carId);
+  }
+
+  add(car: Car): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "add", car);
+  }
+
+  update(car: Car): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "update", car);
   }
 }
