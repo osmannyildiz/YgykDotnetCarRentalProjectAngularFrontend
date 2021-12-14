@@ -1,0 +1,49 @@
+<section class="mb-4">
+  <h1 class="display-6 mb-3">Kullanıcı bilgileri</h1>
+  
+  <form [formGroup]="userInfoForm">
+    <div class="mb-2 row">
+      <div class="col-md-6">
+        <label for="firstName" class="form-label">İsim</label>
+        <input type="text" id="firstName" formControlName="firstName" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="lastName" class="form-label">Soyisim</label>
+        <input type="text" id="lastName" formControlName="lastName" class="form-control">
+      </div>
+    </div>
+    <div class="mb-2">
+      <label for="email" class="form-label">E-posta adresi</label>
+      <input type="email" id="email" formControlName="email" class="form-control">
+    </div>
+    <div class="mb-2">
+      <label for="customerCompanyName" class="form-label">Müşteri şirket ismi</label>
+      <input type="text" id="customerCompanyName" formControlName="customerCompanyName" class="form-control">
+    </div>
+  </form>
+  
+  <button (click)="updateUserInfo()" class="btn btn-primary">Kaydet</button>
+</section>
+
+<section class="mb-4">
+  <h1 class="display-6 mb-3">Şifre değiştir</h1>
+  
+  <form [formGroup]="passwordChangeForm">
+    <div class="mb-2 row">
+      <div class="mb-2">
+        <label for="currentPassword" class="form-label">Mevcut şifre</label>
+        <input type="password" id="currentPassword" formControlName="currentPassword" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="newPassword" class="form-label">Yeni şifre</label>
+        <input type="password" id="newPassword" formControlName="newPassword" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="newPasswordConfirm" class="form-label">Yeni şifre (tekrar)</label>
+        <input type="password" id="newPasswordConfirm" formControlName="newPasswordConfirm" class="form-control">
+      </div>
+    </div>
+  </form>
+  
+  <button (click)="changePassword()" class="btn btn-primary">Değiştir</button>
+</section>

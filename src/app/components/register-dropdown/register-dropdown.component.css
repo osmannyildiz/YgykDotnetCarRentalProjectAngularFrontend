@@ -1,0 +1,8 @@
+.dropdown-menu {
+  min-width: 400px;
+  padding: 0;
+}
+
+.dropdown-menu .card {
+  border: none;
+}

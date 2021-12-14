@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -29,6 +29,10 @@ import { CarAddComponent } from './components/car-add/car-add.component';
 import { BrandEditComponent } from './components/brand-edit/brand-edit.component';
 import { ColorEditComponent } from './components/color-edit/color-edit.component';
 import { CarEditComponent } from './components/car-edit/car-edit.component';
+import { LoginDropdownComponent } from './components/login-dropdown/login-dropdown.component';
+import { RegisterDropdownComponent } from './components/register-dropdown/register-dropdown.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +58,9 @@ import { CarEditComponent } from './components/car-edit/car-edit.component';
     BrandEditComponent,
     ColorEditComponent,
     CarEditComponent,
+    LoginDropdownComponent,
+    RegisterDropdownComponent,
+    AccountSettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +74,9 @@ import { CarEditComponent } from './components/car-edit/car-edit.component';
       enableHtml: true
     })
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

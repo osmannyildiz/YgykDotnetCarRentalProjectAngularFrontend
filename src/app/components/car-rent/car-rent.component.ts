@@ -63,7 +63,7 @@ export class CarRentComponent implements OnInit {
 
   dateToStr(date: Date) {
     let y = "" + date.getFullYear();
-    let m = "" + date.getMonth();
+    let m = "" + (date.getMonth() + 1);
     m = m.padStart(2, "0");
     let d = "" + date.getDate();
     d = d.padStart(2, "0");
