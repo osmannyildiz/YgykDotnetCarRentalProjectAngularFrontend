@@ -36,7 +36,7 @@
   </div> -->
 </form>
 
-<p class="mt-3">Onaylamanız durumunda {{ totalPrice | currency:"TRY":"₺" }} kartınızdan anında tahsil edilecektir.</p>
+<p class="mt-3">Onaylamanız durumunda <span appHighlight>{{ totalPrice | currency:"TRY":"₺" }}</span> kartınızdan anında tahsil edilecektir.</p>
 <div class="row mb-5">
   <div class="col-md-auto">
     <a routerLink="/cars/{{car.id}}/rent" class="btn btn-secondary">Geri</a>

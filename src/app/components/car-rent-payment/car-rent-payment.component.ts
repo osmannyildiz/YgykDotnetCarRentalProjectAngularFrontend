@@ -77,7 +77,6 @@ export class CarRentPaymentComponent implements OnInit {
   getCreditCard() {
     this.creditCardService.getByUserId(this.authService.getUserId()).subscribe((resp) => {
       if (resp.success && resp.data != null) {
-        console.log("kredi kartı geldi");
         this.creditCard = resp.data;
         this.saveCreditCard = true;
         this.fillCreditCardForm();
@@ -131,7 +130,6 @@ export class CarRentPaymentComponent implements OnInit {
     //   return;
     // };
 
-    console.warn(this.creditCardForm);
     if (this.creditCardForm.valid) {
       let formValue = this.creditCardForm.value;
       this.creditCard.userId = this.authService.getUserId(),

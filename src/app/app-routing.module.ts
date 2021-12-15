@@ -13,23 +13,24 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
 import { ColorEditComponent } from './components/color-edit/color-edit.component';
 import { HomeComponent } from './components/home/home.component';
 import { RentalsViewComponent } from './components/rentals-view/rentals-view.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "brands/add", component: BrandAddComponent },
-  { path: "brands/:brandId/edit", component: BrandEditComponent },
-  { path: "colors/add", component: ColorAddComponent },
-  { path: "colors/:colorId/edit", component: ColorEditComponent },
+  { path: "brands/add", component: BrandAddComponent, canActivate: [LoginGuard] },
+  { path: "brands/:brandId/edit", component: BrandEditComponent, canActivate: [LoginGuard] },
+  { path: "colors/add", component: ColorAddComponent, canActivate: [LoginGuard] },
+  { path: "colors/:colorId/edit", component: ColorEditComponent, canActivate: [LoginGuard] },
   { path: "cars", component: CarsViewComponent },
   { path: "cars/brand/:brandId", component: CarsViewComponent },
   { path: "cars/color/:colorId", component: CarsViewComponent },
-  { path: "cars/add", component: CarAddComponent },
+  { path: "cars/add", component: CarAddComponent, canActivate: [LoginGuard] },
   { path: "cars/:carId", component: CarDetailComponent },
-  { path: "cars/:carId/edit", component: CarEditComponent },
-  { path: "cars/:carId/rent", component: CarRentComponent },
-  { path: "cars/:carId/rent/:rentDateStr/:returnDateStr/payment", component: CarRentPaymentComponent },
+  { path: "cars/:carId/edit", component: CarEditComponent, canActivate: [LoginGuard] },
+  { path: "cars/:carId/rent", component: CarRentComponent, canActivate: [LoginGuard] },
+  { path: "cars/:carId/rent/:rentDateStr/:returnDateStr/payment", component: CarRentPaymentComponent, canActivate: [LoginGuard] },
   { path: "rentals", component: RentalsViewComponent },
-  { path: "account-settings", component: AccountSettingsComponent },
+  { path: "account-settings", component: AccountSettingsComponent, canActivate: [LoginGuard] },
 ];
 
 @NgModule({

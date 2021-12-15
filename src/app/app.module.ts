@@ -33,6 +33,7 @@ import { LoginDropdownComponent } from './components/login-dropdown/login-dropdo
 import { RegisterDropdownComponent } from './components/register-dropdown/register-dropdown.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { AccountSettingsComponent } from './components/account-settings/account-
     LoginDropdownComponent,
     RegisterDropdownComponent,
     AccountSettingsComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
